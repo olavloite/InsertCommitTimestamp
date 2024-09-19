@@ -12,6 +12,7 @@ var container = new ContainerBuilder()
     .WithImage("gcr.io/cloud-spanner-emulator/emulator")
     // Bind port 9010 of the container to a random port on the host.
     .WithPortBinding(9010, true)
+    .WithEnvironment(new Dictionary<string, string>{{"TZ", "America/Chicago"}})
     .Build();
 
 // Start the container.
